@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply text-sm lg:text-base scroll-smooth scroll-pt-8 snap-y;
+    @apply text-xs md:text-sm lg:text-base xl:text-lg scroll-smooth scroll-pt-8 snap-y;
   }
   body {
     @apply font-sans;
