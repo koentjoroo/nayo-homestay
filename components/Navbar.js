@@ -1,8 +1,7 @@
 import cx from "clsx"
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import LocaleSwitcher from "./LocaleSwitcher"
-
 
 const links = [
   { path: "#rooms", text: "room" },
@@ -30,7 +29,7 @@ export default function Navbar() {
 function NavLink(props) {
   const { href, text } = props
 
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common")
   const router = useRouter()
   const isActive = router.asPath === href
 

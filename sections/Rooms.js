@@ -1,6 +1,6 @@
 import { Tab } from "@headlessui/react"
 import Section from "components/Section"
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next"
 import Image from "next/image"
 
 const tabs = ["daily_rooms", "monthly_rooms"]
@@ -9,21 +9,13 @@ const dailyRooms = [
     id: 123,
     name: "Single Large Bed",
     rate: 150000,
-    facilities: [
-      "Single Large Bed",
-      "big_closet",
-      "all_facilities_included",
-    ],
+    facilities: ["Single Large Bed", "big_closet", "all_facilities_included"],
   },
   {
     id: 456,
     name: "Twin Small Bed",
     rate: 150000,
-    facilities: [
-      "Twin Small Bed",
-      "big_closet",
-      "all_facilities_included",
-    ],
+    facilities: ["Twin Small Bed", "big_closet", "all_facilities_included"],
   },
 ]
 const monthlyRooms = [
@@ -67,7 +59,7 @@ export default function Rooms() {
   const p = price => price.toLocaleString(i18n.language)
 
   return (
-    <Section id="rooms" title={t('available_rooms')}>
+    <Section id="rooms" title={t("available_rooms")}>
       <div className="flex flex-col items-center gap-8">
         <Tab.Group>
           <Tab.List className="flex gap-4 p-4 rounded-md bg-stone-100">
@@ -105,7 +97,7 @@ export default function Rooms() {
                       {room.name}
                     </h5>
                     <p className="font-bold uppercase text-stone-500">
-                      Rp{p(room.rate)}/{t('day')}
+                      Rp{p(room.rate)}/{t("day")}
                     </p>
                     <ul className="flex flex-wrap justify-center gap-2">
                       {room.facilities.map(item => (
@@ -138,10 +130,10 @@ export default function Rooms() {
                       />
                     </div>
                     <h3 className="text-2xl font-black leading-relaxed">
-                      {t('monthly')} {room.name}
+                      {t("monthly")} {room.name}
                     </h3>
                     <p className="font-bold uppercase text-stone-500">
-                      Rp{p(room.rate)}/{t('month')}
+                      Rp{p(room.rate)}/{t("month")}
                     </p>
                     <ul className="flex flex-wrap justify-center gap-2">
                       {room.facilities.map(item => (

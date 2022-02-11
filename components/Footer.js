@@ -10,11 +10,12 @@ const footer = {
     { href: "#reviews", text: "customer_reviews" },
     { href: "#booking", text: "room_bookment" },
   ],
-  address: "Jalan Rambutan Nomor 11, Sambelegi Kidul, Maguwoharjo, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+  address:
+    "Jalan Rambutan Nomor 11, Sambelegi Kidul, Maguwoharjo, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
 }
 
 export default function Footer() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common")
 
   return (
     <footer className="p-16 text-sm bg-stone-900">
@@ -29,7 +30,7 @@ export default function Footer() {
           <span className="text-stone-300">&copy; 2022 Nayo Homestay</span>
         </div>
         <div className="flex flex-col gap-4">
-          <p className="font-bold text-stone-50">{t('information')}</p>
+          <p className="font-bold text-stone-50">{t("information")}</p>
           <ul className="flex flex-col gap-2">
             {footer.links.map(item => (
               <li key={item.href}>
@@ -43,10 +44,10 @@ export default function Footer() {
           </ul>
         </div>
         <div className="flex flex-col gap-4">
-          <span className="text-stone-50">{t('address')}</span>
+          <span className="text-stone-50">{t("address")}</span>
           <p className="text-stone-300">{footer.address}</p>
           <div className="flex items-center text-stone-50">
-            <span>{t('language')}:</span>
+            <span>{t("language")}:</span>
             <LocaleSwitcher />
           </div>
         </div>

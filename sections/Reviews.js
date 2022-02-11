@@ -1,7 +1,6 @@
 import Section from "components/Section"
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next"
 import { FiStar } from "react-icons/fi"
-
 
 const reviews = {
   left: [
@@ -77,10 +76,14 @@ function ReviewCard(props) {
 }
 
 export default function Reviews() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common")
 
   return (
-    <Section id="reviews" title={t('customer_reviews')} className="bg-orange-100">
+    <Section
+      id="reviews"
+      title={t("customer_reviews")}
+      className="bg-orange-100"
+    >
       <p className="text-center text-stone-800 my-16">
         Mendapatkan rating <span className="text-orange-500">4.8</span> dari 12
         ulasan di Google

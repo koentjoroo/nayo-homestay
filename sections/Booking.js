@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 
 export default function Booking() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common")
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -12,7 +12,7 @@ export default function Booking() {
     <section id="booking" className="p-8 lg:p-16 bg-stone-900 text-stone-50">
       <div className="mx-auto container grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="leading-relaxed text-center lg:text-left">
-          <h2 className="text-4xl mb-4">{t('book_now')}!</h2>
+          <h2 className="text-4xl mb-4">{t("book_now")}!</h2>
           <p>
             Silahkan isi formulir di samping atau hubungi admin dengan nomor
             WhatsApp 08XXXXXXXXXX.

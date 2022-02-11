@@ -1,6 +1,6 @@
 import shape from "blobshape"
 import Section from "components/Section"
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next"
 import { createElement } from "react"
 import { BiBed, BiCloset } from "react-icons/bi"
 import { FaToilet } from "react-icons/fa"
@@ -19,10 +19,10 @@ const facilities = [
 ]
 
 export default function FacilitiesSection() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common")
 
   return (
-    <Section id="facilities" title={t('homestay_facilities')}>
+    <Section id="facilities" title={t("homestay_facilities")}>
       <div className="flex flex-wrap justify-center gap-8">
         {facilities.map((facility, index) => (
           <div
