@@ -1,9 +1,10 @@
+import Footer from "components/Footer"
+import Navbar from "components/Navbar"
+import { useTranslation } from 'next-i18next'
 import Head from "next/head"
 
-import Navbar from "components/Navbar"
-import Footer from "components/Footer"
-
 export default function Layout(props) {
+  const { t } = useTranslation()
   return (
     <>
       <Head>
@@ -11,6 +12,16 @@ export default function Layout(props) {
       </Head>
       <Navbar />
       {props.children}
+      <section className="p-8 lg:p-16">
+        <div className="text-center container mx-auto">
+          <h2 className="text-orange-500 mb-8 tracking-right font-bold text-4xl">
+            {t('missing_info_question')}
+          </h2>
+          <p className="max-w-prose text-stone-500 mx-auto">
+            {t('missing_info_answer')}
+          </p>
+        </div>
+      </section>
       <Footer />
     </>
   )

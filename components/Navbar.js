@@ -1,23 +1,26 @@
-import { useRouter } from "next/router"
-
 import cx from "clsx"
+import { useTranslation } from 'next-i18next'
+import { useRouter } from "next/router"
+import LocaleSwitcher from "./LocaleSwitcher"
+
 
 const links = [
-  { path: "#rooms", text: "Kamar" },
-  { path: "#facilities", text: "Fasilitas" },
-  { path: "#location", text: "Lokasi" },
-  { path: "#reviews", text: "Ulasan" },
+  { path: "#rooms", text: "room" },
+  { path: "#facilities", text: "facility" },
+  { path: "#location", text: "location" },
+  { path: "#reviews", text: "reviews" },
 ]
 
 export default function Navbar() {
   return (
-    <nav className="z-50 bg-stone-800 sticky top-0 text-stone-100 w-full p-8">
-      <div className="mx-auto container flex justify-between items-center">
-        <span className="tracking-tight font-bold">- Nayo Homestay -</span>
+    <nav className="sticky top-0 z-50 w-full p-8 bg-stone-800 text-stone-100">
+      <div className="container flex items-center justify-between mx-auto">
+        <span className="font-bold tracking-tight">- Nayo Homestay -</span>
         <span className="flex items-center gap-8">
           {links.map(link => (
             <NavLink key={link.path} href={link.path} text={link.text} />
           ))}
+          <LocaleSwitcher />
         </span>
       </div>
     </nav>
@@ -27,6 +30,7 @@ export default function Navbar() {
 function NavLink(props) {
   const { href, text } = props
 
+  const { t } = useTranslation('common')
   const router = useRouter()
   const isActive = router.asPath === href
 
@@ -37,7 +41,7 @@ function NavLink(props) {
 
   return (
     <a className={classes} href={href}>
-      {text}
+      {t(text)}
     </a>
   )
 }

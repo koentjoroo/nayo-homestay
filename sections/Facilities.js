@@ -1,37 +1,38 @@
-import { createElement } from "react"
-
 import shape from "blobshape"
-import { FaToilet } from "react-icons/fa"
-import { FiWind, FiTv, FiWifi } from "react-icons/fi"
-import { BiCloset, BiBed } from "react-icons/bi"
-import { MdOutlineShower, MdOutlineKitchen } from "react-icons/md"
-
 import Section from "components/Section"
+import { useTranslation } from 'next-i18next'
+import { createElement } from "react"
+import { BiBed, BiCloset } from "react-icons/bi"
+import { FaToilet } from "react-icons/fa"
+import { FiTv, FiWifi, FiWind } from "react-icons/fi"
+import { MdOutlineKitchen, MdOutlineShower } from "react-icons/md"
 
 const facilities = [
-  { icon: FiWind, name: "Air Conditioner" },
-  { icon: FiTv, name: "Televisi" },
-  { icon: BiCloset, name: "Almari" },
-  { icon: BiBed, name: "Spring Bed" },
-  { icon: FaToilet, name: "Kamar Mandi Dalam" },
-  { icon: MdOutlineShower, name: "Shower Air Hangat" },
-  { icon: MdOutlineKitchen, name: "Dapur Bersama" },
-  { icon: FiWifi, name: "Free WiFi & Listrik" },
+  { icon: FiWind, name: "air_conditioner" },
+  { icon: FiTv, name: "television" },
+  { icon: BiCloset, name: "closet" },
+  { icon: BiBed, name: "spring_bed" },
+  { icon: FaToilet, name: "indoor_bathroom" },
+  { icon: MdOutlineShower, name: "hot_shower" },
+  { icon: MdOutlineKitchen, name: "shared_kitchen" },
+  { icon: FiWifi, name: "free_wifi_and_electricity" },
 ]
 
 export default function FacilitiesSection() {
+  const { t } = useTranslation('common')
+
   return (
-    <Section id="facilities" title="Fasilitas Penginapan">
-      <div className="flex justify-center flex-wrap gap-8">
+    <Section id="facilities" title={t('homestay_facilities')}>
+      <div className="flex flex-wrap justify-center gap-8">
         {facilities.map((facility, index) => (
           <div
             key={facility.name}
-            className="w-64 flex flex-col items-center gap-8 p-8 rounded-md border border-stone-200 hover:shadow-md transition-shadow"
+            className="flex flex-col items-center w-64 gap-8 p-8 transition-shadow border rounded-md border-stone-200 hover:shadow-md"
           >
-            <div className="relative flex justify-center pt-4 items-center">
+            <div className="relative flex items-center justify-center pt-4">
               <svg
                 viewBox="0 0 32 32"
-                className="-z-10 absolute w-16 fill-orange-100"
+                className="absolute w-16 -z-10 fill-orange-100"
               >
                 <path
                   d={
@@ -44,8 +45,8 @@ export default function FacilitiesSection() {
                 className: "text-2xl text-orange-500",
               })}
             </div>
-            <p className="text-xs uppercase font-bold text-stone-800 tracking-widest">
-              {facility.name}
+            <p className="text-xs font-bold tracking-widest text-center uppercase text-stone-800">
+              {t(facility.name)}
             </p>
           </div>
         ))}

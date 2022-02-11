@@ -1,60 +1,76 @@
-import Image from "next/image"
 import { Tab } from "@headlessui/react"
-
 import Section from "components/Section"
+import { useTranslation } from 'next-i18next'
+import Image from "next/image"
 
-const tabs = ["Kamar Harian", "Kamar Bulanan"]
+const tabs = ["daily_rooms", "monthly_rooms"]
 const dailyRooms = [
   {
     id: 123,
     name: "Single Large Bed",
-    rate: "Rp150.000/hari",
-    facilities: ["Single Large Bed", "Kamar Mandi Dalam", "Almari Besar"],
+    rate: 150000,
+    facilities: [
+      "Single Large Bed",
+      "big_closet",
+      "all_facilities_included",
+    ],
   },
   {
     id: 456,
     name: "Twin Small Bed",
-    rate: "Rp150.000/hari",
-    facilities: ["Twin Small Bed", "Kamar Mandi Dalam", "Almari Besar"],
+    rate: 150000,
+    facilities: [
+      "Twin Small Bed",
+      "big_closet",
+      "all_facilities_included",
+    ],
   },
 ]
 const monthlyRooms = [
   {
     id: 123,
-    name: "Bulanan A",
-    rate: "Rp1.000.000/bulan",
-    facilities: ["Single Medium Bed", "Kamar Mandi Dalam", "Almari Sedang"],
+    name: "A",
+    rate: 1000000,
+    facilities: [
+      "Single Medium Bed",
+      "medium_closet",
+      "all_facilities_included",
+      "without_air_conditioner",
+    ],
   },
   {
     id: 234,
-    name: "Bulanan B",
-    rate: "Rp1.250.000/bulan",
+    name: "B",
+    rate: 1250000,
     facilities: [
       "Single Medium Bed",
-      "Kamar Mandi Dalam",
-      "Almari Sedang",
-      "Air Conditioner",
+      "medium_closet",
+      "all_facilities_included",
+      "with_air_conditioner",
     ],
   },
   {
     id: 345,
-    name: "Bulanan c",
-    rate: "Rp1.500.000/bulan",
+    name: "C",
+    rate: 1500000,
     facilities: [
       "Single Large Bed",
-      "Kamar Mandi Dalam",
-      "Almari Besar",
-      "Air Conditioner",
+      "big_closet",
+      "all_facilities_included",
+      "with_air_conditioner",
     ],
   },
 ]
 
 export default function Rooms() {
+  const { t, i18n } = useTranslation()
+  const p = price => price.toLocaleString(i18n.language)
+
   return (
-    <Section id="rooms" title="Kamar Tersedia">
+    <Section id="rooms" title={t('available_rooms')}>
       <div className="flex flex-col items-center gap-8">
         <Tab.Group>
-          <Tab.List className="bg-stone-100 p-4 rounded-md flex gap-4">
+          <Tab.List className="flex gap-4 p-4 rounded-md bg-stone-100">
             {tabs.map(tab => (
               <Tab
                 key={tab}
@@ -64,7 +80,7 @@ export default function Rooms() {
                     : "px-8 py-4 rounded-md hover:bg-stone-300 transition-colors text-stone-500 uppercase font-bold tracking-wide"
                 }
               >
-                {tab}
+                {t(tab)}
               </Tab>
             ))}
           </Tab.List>
@@ -76,7 +92,7 @@ export default function Rooms() {
                     key={room.id}
                     className="w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
                   >
-                    <div className="w-full aspect-video relative">
+                    <div className="relative w-full aspect-video">
                       <Image
                         className="rounded-md"
                         src="/room-daily.png"
@@ -85,19 +101,19 @@ export default function Rooms() {
                         objectFit="cover"
                       />
                     </div>
-                    <h5 className="font-black text-2xl leading-relaxed">
+                    <h5 className="text-2xl font-black leading-relaxed">
                       {room.name}
                     </h5>
-                    <p className="text-stone-500 uppercase font-bold">
-                      {room.rate}
+                    <p className="font-bold uppercase text-stone-500">
+                      Rp{p(room.rate)}/{t('day')}
                     </p>
-                    <ul className="flex justify-center gap-2 flex-wrap">
+                    <ul className="flex flex-wrap justify-center gap-2">
                       {room.facilities.map(item => (
                         <li
                           key={item}
-                          className="rounded-full px-4 uppercase font-bold tracking-widest text-xs py-2 bg-orange-100 hover:bg-orange-200 text-orange-500 transition-colors"
+                          className="px-4 py-2 text-xs font-bold tracking-widest text-orange-500 uppercase transition-colors bg-orange-100 rounded-full hover:bg-orange-200"
                         >
-                          {item}
+                          {t(item)}
                         </li>
                       ))}
                     </ul>
@@ -112,7 +128,7 @@ export default function Rooms() {
                     key={room.id}
                     className="w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
                   >
-                    <div className="w-full aspect-video relative">
+                    <div className="relative w-full aspect-video">
                       <Image
                         className="rounded-md"
                         src="/room-daily.png"
@@ -121,19 +137,19 @@ export default function Rooms() {
                         objectFit="cover"
                       />
                     </div>
-                    <h5 className="font-black text-2xl leading-relaxed">
-                      {room.name}
-                    </h5>
-                    <p className="text-stone-500 uppercase font-bold">
-                      {room.rate}
+                    <h3 className="text-2xl font-black leading-relaxed">
+                      {t('monthly')} {room.name}
+                    </h3>
+                    <p className="font-bold uppercase text-stone-500">
+                      Rp{p(room.rate)}/{t('month')}
                     </p>
-                    <ul className="flex justify-center gap-2 flex-wrap">
+                    <ul className="flex flex-wrap justify-center gap-2">
                       {room.facilities.map(item => (
                         <li
                           key={item}
-                          className="rounded-full px-4 uppercase font-bold tracking-widest text-xs py-2 bg-orange-100 hover:bg-orange-200 text-orange-500 transition-colors"
+                          className="px-4 py-2 text-xs font-bold tracking-widest text-orange-500 uppercase transition-colors bg-orange-100 rounded-full hover:bg-orange-200"
                         >
-                          {item}
+                          {t(item)}
                         </li>
                       ))}
                     </ul>
