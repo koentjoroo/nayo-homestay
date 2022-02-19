@@ -10,6 +10,10 @@ module.exports = {
         serif: ['"Playfair Display"'],
         sans: ["Poppins"],
       },
+      backgroundImage: {
+        'joglo-pond': 'url(/joglo_pond.webp)',
+        'daily-pond': 'url(/daily_pond.webp)'
+      }
     },
   },
   plugins: [],

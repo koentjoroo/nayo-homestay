@@ -15,12 +15,12 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full p-8 bg-stone-800 text-stone-100">
       <div className="container flex items-center justify-between mx-auto">
         <span className="font-bold tracking-tight">- Nayo Homestay -</span>
-        <span className="flex items-center gap-8">
+        <span className="hidden md:flex items-center gap-8">
           {links.map(link => (
             <NavLink key={link.path} href={link.path} text={link.text} />
           ))}
-          <LocaleSwitcher />
         </span>
+          <LocaleSwitcher />
       </div>
     </nav>
   )

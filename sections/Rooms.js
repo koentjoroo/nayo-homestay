@@ -9,12 +9,14 @@ const dailyRooms = [
     id: 123,
     name: "Single Large Bed",
     rate: 150000,
+    img: '/single_large_bed.webp',
     facilities: ["Single Large Bed", "big_closet", "all_facilities_included"],
   },
   {
     id: 456,
     name: "Twin Small Bed",
     rate: 150000,
+    img: '/twin_small_bed.webp',
     facilities: ["Twin Small Bed", "big_closet", "all_facilities_included"],
   },
 ]
@@ -23,6 +25,7 @@ const monthlyRooms = [
     id: 123,
     name: "A",
     rate: 1000000,
+    img: '/room-monthly.png',
     facilities: [
       "Single Medium Bed",
       "medium_closet",
@@ -34,6 +37,7 @@ const monthlyRooms = [
     id: 234,
     name: "B",
     rate: 1250000,
+    img: '/room-monthly.png',
     facilities: [
       "Single Medium Bed",
       "medium_closet",
@@ -45,6 +49,7 @@ const monthlyRooms = [
     id: 345,
     name: "C",
     rate: 1500000,
+    img: '/single_large_bed.webp',
     facilities: [
       "Single Large Bed",
       "big_closet",
@@ -87,7 +92,7 @@ export default function Rooms() {
                     <div className="relative w-full aspect-video">
                       <Image
                         className="rounded-md"
-                        src="/room-daily.png"
+                        src={room.img}
                         alt={room.name}
                         layout="fill"
                         objectFit="cover"
@@ -123,7 +128,7 @@ export default function Rooms() {
                     <div className="relative w-full aspect-video">
                       <Image
                         className="rounded-md"
-                        src="/room-daily.png"
+                        src={room.img}
                         alt={room.name}
                         layout="fill"
                         objectFit="cover"
