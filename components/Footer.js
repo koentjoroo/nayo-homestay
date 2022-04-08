@@ -1,6 +1,7 @@
+import cx from "clsx"
 import { useTranslation } from "next-i18next"
 import Link from "next/link"
-import LocaleSwitcher from "./LocaleSwitcher"
+import { useRouter } from "next/router"
 
 const footer = {
   links: [
@@ -16,6 +17,15 @@ const footer = {
 
 export default function Footer() {
   const { t } = useTranslation("common")
+  const { locale: currentLocale, asPath, push } = useRouter()
+
+  const getLangClass = locale =>
+    cx([
+      "mx-2 cursor-pointer hover:opacity-100",
+      locale === currentLocale ? "font-medium" : "opacity-75",
+    ])
+
+  const changeLocale = locale => push(asPath, asPath, { locale })
 
   return (
     <footer className="p-16 text-sm bg-stone-900">
@@ -48,7 +58,19 @@ export default function Footer() {
           <p className="text-stone-300">{footer.address}</p>
           <div className="flex items-center text-stone-50">
             <span>{t("language")}:</span>
-            <LocaleSwitcher />
+            <span
+              className={getLangClass("id")}
+              onClick={() => changeLocale("id")}
+            >
+              {t("indonesia")}
+            </span>
+            <span>&middot;</span>
+            <span
+              className={getLangClass("en")}
+              onClick={() => changeLocale("en")}
+            >
+              {t("english")}
+            </span>
           </div>
         </div>
       </div>

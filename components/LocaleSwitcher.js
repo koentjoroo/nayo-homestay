@@ -1,9 +1,16 @@
 import { Listbox, Transition } from "@headlessui/react"
+import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import { Fragment } from "react"
 import { AiOutlineGlobal } from "react-icons/ai"
 
+const localeTexts = {
+  id: "indonesia",
+  en: "english",
+}
+
 export default function LocaleSwitcher() {
+  const { t } = useTranslation("common")
   const { locales, locale: currentLocale, asPath, push } = useRouter()
   return (
     <Listbox
@@ -23,7 +30,7 @@ export default function LocaleSwitcher() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute w-full py-2 rounded-sm bg-stone-50">
+          <Listbox.Options className="absolute w-max right-0 py-2 rounded-sm bg-stone-50">
             {locales.map(locale => (
               <Listbox.Option
                 key={locale}
@@ -34,7 +41,7 @@ export default function LocaleSwitcher() {
                   } px-4 cursor-pointer`
                 }
               >
-                {locale.toUpperCase()}
+                {t(localeTexts[locale])}
               </Listbox.Option>
             ))}
           </Listbox.Options>
