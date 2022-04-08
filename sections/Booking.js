@@ -1,8 +1,25 @@
+import cx from "clsx"
 import { Field, Form, Formik } from "formik"
 import { useTranslation } from "next-i18next"
+import { useEffect, useRef, useState } from "react"
 
 export default function Booking() {
   const { t } = useTranslation("common")
+  const [isInViewport, setInViewport] = useState(false)
+  const thisEl = useRef(null)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const callback = ([entry]) => {
+        if (entry.isIntersecting && !isInViewport)
+          setInViewport(entry.isIntersecting)
+      }
+      const observer = new IntersectionObserver(callback)
+      thisEl.current && observer.observe(thisEl.current)
+
+      return () => observer.unobserve(thisEl.current)
+    }
+  }, [])
 
   const initialValues = {
     checkIn: "",
@@ -48,11 +65,13 @@ export default function Booking() {
     setSubmitting(false)
   }
 
+  const classes = cx([
+    "py-8 md:py-16 px-4 xs:px-8 md:px-16 bg-fixed bg-cover bg-center text-stone-50",
+    isInViewport && "bg-daily-pond",
+  ])
+
   return (
-    <section
-      id="booking"
-      className="py-8 md:py-16 px-4 xs:px-8 md:px-16 bg-fixed bg-daily-pond bg-cover bg-center text-stone-50"
-    >
+    <section id="booking" className={classes} ref={thisEl}>
       <div className="container grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
         <div className="leading-relaxed text-center lg:text-left">
           <h2 className="mb-4 text-4xl">{t("book_now")}!</h2>
