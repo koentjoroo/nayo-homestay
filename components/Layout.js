@@ -10,8 +10,8 @@ export default function Layout(props) {
     <>
       <Head>
         <title>{props.title}</title>
-        <meta itemProp="name" content={props.title} />
-        <meta itemProp="description" content={props.description} />
+        <meta name="name" content={props.title} />
+        <meta name="description" content={props.description} />
         {/* <meta itemProp="image" content={props?.image} /> */}
       </Head>
       <Navbar />
