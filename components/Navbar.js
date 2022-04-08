@@ -24,7 +24,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleWindowScroll)
+      window.addEventListener("scroll", handleWindowScroll, { passive: true })
     }
   }, [])
 
@@ -94,6 +94,7 @@ export default function Navbar() {
         <button
           className="rounded-full p-0 bg-white/0 transition-colors focus:bg-white/25"
           onClick={() => setMobileNavVisibility(true)}
+          aria-label={t("navigation_menu")}
         >
           <HiMenu size="1.5em" />
         </button>
