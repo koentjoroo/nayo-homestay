@@ -36,9 +36,9 @@ export default function Navbar() {
   return (
     <>
       <nav className={navClass}>
-        <div className="container flex items-center justify-center md:justify-between mx-auto">
+        <div className="container mx-auto flex items-center justify-center md:justify-between">
           <span className="font-bold tracking-tight">- Nayo Homestay -</span>
-          <span className="hidden md:flex items-center gap-8">
+          <span className="hidden items-center gap-8 md:flex">
             {links.map(link => (
               <NavLink key={link.path} href={link.path} text={link.text} />
             ))}
@@ -57,7 +57,7 @@ export default function Navbar() {
         leaveTo="opacity-0"
         leave="duration-300 transition-opacity fixed z-20 inset-0"
       >
-        <div className="bg-black/50 fixed z-20 inset-0"></div>
+        <div className="fixed inset-0 z-20 bg-black/50"></div>
       </Transition>
       <Transition
         show={mobileNavIsVisibile}
@@ -68,11 +68,11 @@ export default function Navbar() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-10"
       >
-        <ul className="fixed z-20 inset-x-0 bottom-0 p-2 flex flex-col justify-end bg-white">
+        <ul className="fixed inset-x-0 bottom-0 z-20 flex flex-col justify-end bg-white p-2">
           {links.map(link => (
             <li
               key={link.path}
-              className="text-center p-4 rounded-sm my-2 transition-colors focus:bg-stone-800/25"
+              className="my-2 rounded-sm p-4 text-center transition-colors focus:bg-stone-800/25"
             >
               <NavLink
                 key={link.path}
@@ -83,16 +83,16 @@ export default function Navbar() {
             </li>
           ))}
           <li
-            className="text-center p-4 rounded-sm my-2 transition-colors bg-red-100 focus:bg-red-300 text-red-500"
+            className="my-2 rounded-sm bg-red-100 p-4 text-center text-red-500 transition-colors focus:bg-red-300"
             onClick={() => setMobileNavVisibility(false)}
           >
-            <button className="uppercase font-bold">{t("close")}</button>
+            <button className="font-bold uppercase">{t("close")}</button>
           </li>
         </ul>
       </Transition>
-      <span className="md:hidden pl-8 pt-8 pr-4 pb-4 z-10 rounded-tl-full bg-orange-500 text-white fixed bottom-0 right-0">
+      <span className="fixed bottom-0 right-0 z-10 rounded-tl-full bg-orange-500 pl-8 pt-8 pr-4 pb-4 text-white md:hidden">
         <button
-          className="rounded-full p-0 bg-white/0 transition-colors focus:bg-white/25"
+          className="rounded-full bg-white/0 p-0 transition-colors focus:bg-white/25"
           onClick={() => setMobileNavVisibility(true)}
           aria-label={t("navigation_menu")}
         >

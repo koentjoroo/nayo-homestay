@@ -18,7 +18,7 @@ export default function LocaleSwitcher() {
       onChange={locale => push(asPath, asPath, { locale })}
     >
       <div className="relative">
-        <Listbox.Button className="relative flex items-center w-full gap-2 px-4">
+        <Listbox.Button className="relative flex w-full items-center gap-2 px-4">
           {currentLocale.toUpperCase()} <AiOutlineGlobal />
         </Listbox.Button>
         <Transition
@@ -30,7 +30,7 @@ export default function LocaleSwitcher() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute w-max right-0 py-2 rounded-sm bg-stone-50">
+          <Listbox.Options className="absolute right-0 w-max rounded-sm bg-stone-50 py-2">
             {locales.map(locale => (
               <Listbox.Option
                 key={locale}
@@ -38,7 +38,7 @@ export default function LocaleSwitcher() {
                 className={({ active }) =>
                   `${
                     active ? "bg-orange-100 text-orange-500" : "text-stone-500"
-                  } px-4 cursor-pointer`
+                  } cursor-pointer px-4`
                 }
               >
                 {t(localeTexts[locale])}

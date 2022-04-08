@@ -27,12 +27,12 @@ export default function FacilitiesSection() {
         {facilities.map((facility, index) => (
           <div
             key={facility.name}
-            className="flex flex-col items-center w-64 gap-8 p-8 transition-shadow border rounded-md border-stone-200 hover:shadow-md"
+            className="flex w-64 flex-col items-center gap-8 rounded-md border border-stone-200 p-8 transition-shadow hover:shadow-md"
           >
             <div className="relative flex items-center justify-center pt-4">
               <svg
                 viewBox="0 0 32 32"
-                className="absolute w-16 -z-10 fill-orange-100"
+                className="absolute -z-10 w-16 fill-orange-100"
               >
                 <path
                   d={
@@ -45,7 +45,7 @@ export default function FacilitiesSection() {
                 className: "text-2xl text-orange-500",
               })}
             </div>
-            <p className="text-xs font-bold tracking-widest text-center uppercase text-stone-800">
+            <p className="text-center text-xs font-bold uppercase tracking-widest text-stone-800">
               {t(facility.name)}
             </p>
           </div>

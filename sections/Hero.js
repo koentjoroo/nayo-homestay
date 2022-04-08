@@ -6,16 +6,16 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="bg-fixed bg-joglo-pond bg-cover bg-center text-white h-screen md:h-[40rem] w-full"
+      className="h-screen w-full bg-joglo-pond bg-cover bg-fixed bg-center text-white md:h-[40rem]"
     >
-      <div className="container flex flex-col items-center justify-center h-full gap-8 mx-auto text-center">
-        <h1 className="font-black tracking-tight leading-tight text-5xl md:text-[4rem]">
+      <div className="container mx-auto flex h-full flex-col items-center justify-center gap-8 text-center">
+        <h1 className="text-5xl font-black leading-tight tracking-tight md:text-[4rem]">
           {t("hero_header")}
         </h1>
-        <p className="text-2xl max-w-prose">{t("hero_subheader")}</p>
+        <p className="max-w-prose text-2xl">{t("hero_subheader")}</p>
         <a
           href="#booking"
-          className="px-16 py-4 font-bold tracking-wide uppercase bg-orange-500 rounded-full shadow-lg text-orange-50 shadow-orange-500/25"
+          className="rounded-full bg-orange-500 px-16 py-4 font-bold uppercase tracking-wide text-orange-50 shadow-lg shadow-orange-500/25"
         >
           {t("book_now")}
         </a>

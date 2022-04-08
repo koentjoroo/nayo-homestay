@@ -17,11 +17,11 @@ export default function Layout(props) {
       <Navbar />
       {props.children}
       <section className="p-8 lg:p-16">
-        <div className="text-center container mx-auto">
-          <h2 className="text-orange-500 mb-8 tracking-right font-bold text-4xl">
+        <div className="container mx-auto text-center">
+          <h2 className="tracking-right mb-8 text-4xl font-bold text-orange-500">
             {t("missing_info_question")}
           </h2>
-          <p className="max-w-prose text-stone-500 mx-auto">
+          <p className="mx-auto max-w-prose text-stone-500">
             {t("missing_info_answer")}
           </p>
         </div>

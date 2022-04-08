@@ -60,9 +60,9 @@ function ReviewCard(props) {
   const { item } = props
 
   return (
-    <figure className="flex flex-col p-8 gap-4 bg-white rounded-md">
+    <figure className="flex flex-col gap-4 rounded-md bg-white p-8">
       <figcaption className="flex items-baseline justify-between">
-        <h3 className="font-black text-xl text-stone-800">{item.name}</h3>
+        <h3 className="text-xl font-black text-stone-800">{item.name}</h3>
         <span className="flex gap-4">
           <span>{item.rating.toPrecision(2)}</span>
           <FiStar className="fill-yellow-400" />
@@ -84,12 +84,12 @@ export default function Reviews() {
       title={t("customer_reviews")}
       className="bg-orange-100"
     >
-      <p className="text-center text-stone-800 my-16">
+      <p className="my-16 text-center text-stone-800">
         Mendapatkan rating <span className="text-orange-500">4.8</span> dari 12
         ulasan di Google
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-        <ul className="space-y-8 hidden lg:block">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        <ul className="hidden space-y-8 lg:block">
           {reviews.left.map(item => (
             <li key={item.name}>
               <ReviewCard item={item} />
@@ -103,7 +103,7 @@ export default function Reviews() {
             </li>
           ))}
         </ul>
-        <ul className="space-y-8 hidden xl:block">
+        <ul className="hidden space-y-8 xl:block">
           {reviews.right.map(item => (
             <li key={item.name}>
               <ReviewCard item={item} />

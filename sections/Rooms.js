@@ -67,14 +67,14 @@ export default function Rooms() {
     <Section id="rooms" title={t("available_rooms")}>
       <div className="flex flex-col items-center gap-8">
         <Tab.Group>
-          <Tab.List className="flex gap-4 p-4 rounded-md bg-stone-100">
+          <Tab.List className="flex gap-4 rounded-md bg-stone-100 p-4">
             {tabs.map(tab => (
               <Tab
                 key={tab}
                 className={({ selected }) =>
                   selected
-                    ? "px-8 py-4 rounded-md bg-orange-500 hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/50 text-white uppercase font-bold tracking-wide"
-                    : "px-8 py-4 rounded-md hover:bg-stone-300 transition-colors text-stone-500 uppercase font-bold tracking-wide"
+                    ? "rounded-md bg-orange-500 px-8 py-4 font-bold uppercase tracking-wide text-white shadow-lg shadow-orange-500/50 transition-colors hover:bg-orange-600"
+                    : "rounded-md px-8 py-4 font-bold uppercase tracking-wide text-stone-500 transition-colors hover:bg-stone-300"
                 }
               >
                 {t(tab)}
@@ -87,9 +87,9 @@ export default function Rooms() {
                 {dailyRooms.map(room => (
                   <div
                     key={room.id}
-                    className="w-[240px] xs:w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-4 md:p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
+                    className="flex w-[240px] flex-col items-center gap-4 rounded-md border border-stone-100 p-4 text-center transition-shadow hover:shadow-md md:p-8 lg:w-[480px] xs:w-[360px]"
                   >
-                    <div className="relative w-full aspect-video">
+                    <div className="relative aspect-video w-full">
                       <Image
                         className="rounded-md"
                         src={room.img}
@@ -108,7 +108,7 @@ export default function Rooms() {
                       {room.facilities.map(item => (
                         <li
                           key={item}
-                          className="px-4 py-2 text-xs font-bold tracking-widest text-orange-500 uppercase transition-colors bg-orange-100 rounded-full hover:bg-orange-200"
+                          className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold uppercase tracking-widest text-orange-500 transition-colors hover:bg-orange-200"
                         >
                           {t(item)}
                         </li>
@@ -123,9 +123,9 @@ export default function Rooms() {
                 {monthlyRooms.map(room => (
                   <div
                     key={room.id}
-                    className="w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
+                    className="flex w-[360px] flex-col items-center gap-4 rounded-md border border-stone-100 p-8 text-center transition-shadow hover:shadow-md lg:w-[480px]"
                   >
-                    <div className="relative w-full aspect-video">
+                    <div className="relative aspect-video w-full">
                       <Image
                         className="rounded-md"
                         src={room.img}
@@ -144,7 +144,7 @@ export default function Rooms() {
                       {room.facilities.map(item => (
                         <li
                           key={item}
-                          className="px-4 py-2 text-xs font-bold tracking-widest text-orange-500 uppercase transition-colors bg-orange-100 rounded-full hover:bg-orange-200"
+                          className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold uppercase tracking-widest text-orange-500 transition-colors hover:bg-orange-200"
                         >
                           {t(item)}
                         </li>
