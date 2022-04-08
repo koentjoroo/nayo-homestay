@@ -2,13 +2,17 @@ import Footer from "components/Footer"
 import Navbar from "components/Navbar"
 import { useTranslation } from "next-i18next"
 import Head from "next/head"
+import setting from "../setting"
 
 export default function Layout(props) {
   const { t } = useTranslation()
   return (
     <>
       <Head>
-        <title>Nayo Guest Home & Exclusive Kost</title>
+        <title>{props.title}</title>
+        <meta itemProp="name" content={props.title} />
+        <meta itemProp="description" content={props.description} />
+        {/* <meta itemProp="image" content={props?.image} /> */}
       </Head>
       <Navbar />
       {props.children}
@@ -25,4 +29,9 @@ export default function Layout(props) {
       <Footer />
     </>
   )
+}
+
+Layout.defaultProps = {
+  title: setting?.meta?.title,
+  description: setting?.meta?.description,
 }
