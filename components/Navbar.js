@@ -70,7 +70,10 @@ export default function Navbar() {
       >
         <ul className="fixed z-20 inset-x-0 bottom-0 p-2 flex flex-col justify-end bg-white">
           {links.map(link => (
-            <li className="text-center p-4 rounded-sm my-2 transition-colors focus:bg-stone-800/25">
+            <li
+              key={link.path}
+              className="text-center p-4 rounded-sm my-2 transition-colors focus:bg-stone-800/25"
+            >
               <NavLink
                 key={link.path}
                 href={link.path}
