@@ -9,14 +9,14 @@ const dailyRooms = [
     id: 123,
     name: "Single Large Bed",
     rate: 150000,
-    img: '/single_large_bed.webp',
+    img: "/single_large_bed.webp",
     facilities: ["Single Large Bed", "big_closet", "all_facilities_included"],
   },
   {
     id: 456,
     name: "Twin Small Bed",
     rate: 150000,
-    img: '/twin_small_bed.webp',
+    img: "/twin_small_bed.webp",
     facilities: ["Twin Small Bed", "big_closet", "all_facilities_included"],
   },
 ]
@@ -25,7 +25,7 @@ const monthlyRooms = [
     id: 123,
     name: "A",
     rate: 1000000,
-    img: '/room-monthly.png',
+    img: "/room-monthly.png",
     facilities: [
       "Single Medium Bed",
       "medium_closet",
@@ -37,7 +37,7 @@ const monthlyRooms = [
     id: 234,
     name: "B",
     rate: 1250000,
-    img: '/room-monthly.png',
+    img: "/room-monthly.png",
     facilities: [
       "Single Medium Bed",
       "medium_closet",
@@ -49,7 +49,7 @@ const monthlyRooms = [
     id: 345,
     name: "C",
     rate: 1500000,
-    img: '/single_large_bed.webp',
+    img: "/single_large_bed.webp",
     facilities: [
       "Single Large Bed",
       "big_closet",
@@ -87,7 +87,7 @@ export default function Rooms() {
                 {dailyRooms.map(room => (
                   <div
                     key={room.id}
-                    className="w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
+                    className="w-[240px] xs:w-[360px] lg:w-[480px] flex flex-col items-center gap-4 p-4 md:p-8 rounded-md border border-stone-100 hover:shadow-md transition-shadow text-center"
                   >
                     <div className="relative w-full aspect-video">
                       <Image

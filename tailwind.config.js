@@ -6,14 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "320px",
+      },
       fontFamily: {
         serif: ['"Playfair Display"'],
         sans: ["Poppins"],
       },
       backgroundImage: {
-        'joglo-pond': 'url(/joglo_pond.webp)',
-        'daily-pond': 'url(/daily_pond.webp)'
-      }
+        "joglo-pond": "url(/joglo_pond.webp)",
+        "daily-pond": "url(/daily_pond.webp)",
+      },
     },
   },
   plugins: [],

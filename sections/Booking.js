@@ -17,18 +17,18 @@ export default function Booking() {
   const validate = values => {
     const errors = {}
 
-    if (!values.checkIn) errors.checkIn = 'Required'
-    if (!values.checkOut) errors.checkOut = 'Required'
-    if (!values.customerName) errors.customerName = 'Required'
-    if (values.numberOfAdults < 1) errors.numberOfAdults = 'Required'
-    if (values.numberOfRooms < 1) errors.numberOfRooms = 'Required'
-    if (!values.whatsappNumber) errors.whatsappNumber = 'Required'
+    if (!values.checkIn) errors.checkIn = "Required"
+    if (!values.checkOut) errors.checkOut = "Required"
+    if (!values.customerName) errors.customerName = "Required"
+    if (values.numberOfAdults < 1) errors.numberOfAdults = "Required"
+    if (values.numberOfRooms < 1) errors.numberOfRooms = "Required"
+    if (!values.whatsappNumber) errors.whatsappNumber = "Required"
 
     return errors
   }
 
   const handleSubmit = (values, { setSubmitting }) => {
-    console.log('Kepanggil')
+    console.log("Kepanggil")
     const text = `
       Halo! Saya ingin booking kamar.
       Atas nama *${values.customerName}*
@@ -39,19 +39,25 @@ export default function Booking() {
       Jumlah kamar dipesan *${values.numberOfRooms}*
       Kontak WA *${values.whatsappNumber}*
     `
-    const queryParams = new URLSearchParams({ phone: '6281328144878', text: text.replace(/  +/g, '') })
-    const url = 'https://api.whatsapp.com/send?' + queryParams.toString()
-    window.open(url, '_blank')
+    const queryParams = new URLSearchParams({
+      phone: "6281328144878",
+      text: text.replace(/  +/g, ""),
+    })
+    const url = "https://api.whatsapp.com/send?" + queryParams.toString()
+    window.open(url, "_blank")
     setSubmitting(false)
   }
 
   return (
-    <section id="booking" className="p-8 lg:p-16 bg-fixed bg-daily-pond bg-cover bg-center text-stone-50">
+    <section
+      id="booking"
+      className="py-8 md:py-16 px-4 xs:px-8 md:px-16 bg-fixed bg-daily-pond bg-cover bg-center text-stone-50"
+    >
       <div className="container grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
         <div className="leading-relaxed text-center lg:text-left">
           <h2 className="mb-4 text-4xl">{t("book_now")}!</h2>
-          <p>{t('booking_paragraph_1')}</p>
-          <p>{t('booking_paragraph_2')}</p>
+          <p>{t("booking_paragraph_1")}</p>
+          <p>{t("booking_paragraph_2")}</p>
         </div>
         <div className="p-4 bg-white rounded-md lg:p-8 text-stone-800">
           <Formik
@@ -62,7 +68,9 @@ export default function Booking() {
             {({ isSubmitting, errors }) => (
               <Form className="flex flex-col gap-4 text-sm">
                 <label htmlFor="customerName" className="flex flex-col gap-1">
-                  <span className="text-xs text-stone-500">{t('customer_name')}</span>
+                  <span className="text-xs text-stone-500">
+                    {t("customer_name")}
+                  </span>
                   <Field
                     className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
                     type="text"
@@ -104,7 +112,9 @@ export default function Booking() {
                     htmlFor="numberOfAdults"
                     className="flex flex-col flex-1 gap-1"
                   >
-                    <span className="text-xs text-stone-500">{t('number_of_adults')}</span>
+                    <span className="text-xs text-stone-500">
+                      {t("number_of_adults")}
+                    </span>
                     <Field
                       className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
                       type="number"
@@ -117,7 +127,9 @@ export default function Booking() {
                     htmlFor="numberOfKids"
                     className="flex flex-col flex-1 gap-1"
                   >
-                    <span className="text-xs text-stone-500">{t('number_of_kids')}</span>
+                    <span className="text-xs text-stone-500">
+                      {t("number_of_kids")}
+                    </span>
                     <Field
                       className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
                       type="number"
@@ -126,21 +138,25 @@ export default function Booking() {
                     />
                   </label>
                 </div>
-                  <label
-                    htmlFor="numberOfRooms"
-                    className="flex flex-col flex-1 gap-1"
-                  >
-                    <span className="text-xs text-stone-500">{t('number_of_rooms')}</span>
-                    <Field
-                      className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
-                      type="number"
-                      name="numberOfRooms"
-                      id="numberOfRooms"
-                      required
-                    />
-                  </label>
+                <label
+                  htmlFor="numberOfRooms"
+                  className="flex flex-col flex-1 gap-1"
+                >
+                  <span className="text-xs text-stone-500">
+                    {t("number_of_rooms")}
+                  </span>
+                  <Field
+                    className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
+                    type="number"
+                    name="numberOfRooms"
+                    id="numberOfRooms"
+                    required
+                  />
+                </label>
                 <label htmlFor="whatsappNumber" className="flex flex-col gap-1">
-                  <span className="text-xs text-stone-500">{t('whatsapp_number')}</span>
+                  <span className="text-xs text-stone-500">
+                    {t("whatsapp_number")}
+                  </span>
                   <Field
                     className="w-full p-2 border-2 border-stone-100 bg-white rounded-md text-stone-300 shadow-md focus:text-stone-800 focus:outline-orange-300 focus:shadow-none"
                     type="text"
@@ -154,7 +170,7 @@ export default function Booking() {
                   type="submit"
                   disabled={isSubmitting || Object.keys(errors).length}
                 >
-                  {t('send_reservation')}
+                  {t("send_reservation")}
                 </button>
               </Form>
             )}

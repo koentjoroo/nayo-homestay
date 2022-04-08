@@ -28,7 +28,7 @@ export default function Footer() {
   const changeLocale = locale => push(asPath, asPath, { locale })
 
   return (
-    <footer className="p-16 text-sm bg-stone-900">
+    <footer className="p-8 md:p-16 text-sm bg-stone-900">
       <div className="container grid grid-rows-3 gap-16 mx-auto md:grid-rows-none md:grid-cols-3">
         <div className="flex flex-col gap-8">
           <span className="font-bold text-stone-50">- Nayo Homestay -</span>
