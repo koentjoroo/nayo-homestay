@@ -62,7 +62,7 @@ function ReviewCard(props) {
   return (
     <figure className="flex flex-col p-8 gap-4 bg-white rounded-md">
       <figcaption className="flex items-baseline justify-between">
-        <h5 className="font-black text-xl text-stone-800">{item.name}</h5>
+        <h4 className="font-black text-xl text-stone-800">{item.name}</h4>
         <span className="flex gap-4">
           <span>{item.rating.toPrecision(2)}</span>
           <FiStar className="fill-yellow-400" />

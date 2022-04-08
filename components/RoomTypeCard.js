@@ -14,7 +14,7 @@ export default function RoomTypeCard(props) {
         alt={props.title}
       />
       <div className="z-10 rounded-md bg-white w-3/4 shadow-md p-8 flex flex-col items-center gap-2 -mt-24">
-        <h5 className="text-orange-500 text-2xl">{props.title}</h5>
+        <h4 className="text-orange-500 text-2xl">{props.title}</h4>
         <p className="text-stone-500">
           {t("start_at")}{" "}
           <span className="text-stone-800 font-bold">{props.rate}</span>
