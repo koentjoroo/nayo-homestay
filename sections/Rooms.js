@@ -98,9 +98,9 @@ export default function Rooms() {
                         objectFit="cover"
                       />
                     </div>
-                    <h4 className="text-2xl font-black leading-relaxed">
+                    <h3 className="text-2xl font-black leading-relaxed">
                       {room.name}
-                    </h4>
+                    </h3>
                     <p className="font-bold uppercase text-stone-500">
                       Rp{p(room.rate)}/{t("day")}
                     </p>
